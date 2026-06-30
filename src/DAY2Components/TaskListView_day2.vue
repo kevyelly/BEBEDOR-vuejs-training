@@ -59,7 +59,7 @@ function handleDelete(id) {
          - Listen @delete="handleDelete"
          - Fill the "meta" named slot with the due date
     -->
-         
+    <span v-if="tasks.length===0">Empty List</span>
     <!-- Example structure (remove the comment markers and complete it):    -->
     <TaskCard 
       v-for="task in tasks"
@@ -68,6 +68,7 @@ function handleDelete(id) {
       @complete="handleComplete" 
       @delete="handleDelete"
     >
+
       <template #meta>
         Due: {{task.dueDate }}
       </template>
