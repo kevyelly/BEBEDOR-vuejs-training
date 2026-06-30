@@ -99,7 +99,7 @@ const emit = defineEmits(['delete', 'complete'])
 
       <!-- TODO 6: Add the named slot for metadata -->
       <!-- <slot name="meta" /> -->
-       <slot name="meta"></slot>
+       <slot name="meta" class="meta"></slot>
     </div>
 
     <div class="task-actions">
@@ -166,6 +166,7 @@ const emit = defineEmits(['delete', 'complete'])
 .High{
   color:red;
   font-size:10px;
+  border-color:red;
 }
 .Medium{
   color:yellow;font-size:10px;
