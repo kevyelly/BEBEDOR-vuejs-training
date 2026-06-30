@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import Day1 from './components/day1_taskCounter.vue'
+import Day2 from './DAY2Components/TaskListView_day2.vue'
 </script>
 
 <template>
-  <Day1 />
+  <Day2></Day2>
 </template>
