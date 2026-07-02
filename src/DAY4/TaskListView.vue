@@ -9,22 +9,24 @@ import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 
 // TODO 1: Import your store
-// import { useTaskStore } from '@/stores/taskStore'
+import { useTaskStore } from '@/stores/taskStore'
 
 // TODO 2: Get the store instance
-// const taskStore = useTaskStore()
+const taskStore = useTaskStore()
 
 // TODO 3: Destructure REACTIVE STATE using storeToRefs()
-// const { tasks, doneCount, pendingCount, totalCount } = storeToRefs(taskStore)
+const { tasks, doneCount, pendingCount, totalCount } = storeToRefs(taskStore)
 
 // TODO 4: Destructure ACTIONS directly (no storeToRefs needed for functions)
-// const { addTask, toggleTask, removeTask } = taskStore
+const { addTask, toggleTask, removeTask } = taskStore
 
 // This local ref is fine — it's UI state, not task state
 const newTaskName = ref('')
 
 function handleAdd() {
   // TODO 5: Call addTask() from the store, then clear the input
+  taskStore.addTask(newTaskName.value)
+  newTaskName.value = ''
 }
 </script>
 
@@ -34,7 +36,7 @@ function handleAdd() {
 
     <!-- TODO 6: Display totalCount, doneCount, pendingCount from the store -->
     <div class="stats">
-      <!-- Total: {{ ??? }} | Done: {{ ??? }} | Pending: {{ ??? }} -->
+      Total: {{taskStore.totalCount}} | Done: {{taskStore.doneCount}} | Pending: {{taskStore.pendingCount}}
     </div>
 
     <div class="input-row">
@@ -48,8 +50,14 @@ function handleAdd() {
       <!--   checkbox v-model="task.done" @change="toggleTask(task.id)" -->
       <!--   span :class done -->
       <!--   remove button @click="removeTask(task.id)" -->
+
+      <li v-for="task in tasks" :key="task.id">
+        <input type="checkbox" :checked="task.done" @change="toggleTask(task.id)">
+        <span :class="{done: task.done}">{{task.name}}</span>
+        <button class="remove" @click="removeTask(task.id)">X</button>
+      </li>
     </ul>
-  </div>
+  </div>  
 </template>
 
 <style scoped>

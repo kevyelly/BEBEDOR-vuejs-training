@@ -62,9 +62,10 @@ import AboutView      from '../DAY3/AboutView.vue'
 // Earlier days
 import Day1 from '../DAY1/day1_taskCounter.vue'
 import Day2 from '../DAY2/TaskListView_day2.vue'
+import Day4 from '../DAY4/TaskListView.vue'
 
 // TODO 2: Import your Pinia task store so the guard can check if a task exists
-import { useTaskStore } from '../stores/taskStore.js'
+import { useTaskStore } from '../stores/taskStore'
 
 const routes = [
   // TODO 3: Add a redirect from '/' to '/home'
@@ -83,6 +84,7 @@ const routes = [
   // Earlier days
   { path: '/day1', component: Day1 },
   { path: '/day2', component: Day2 },
+  { path: '/day4', component: Day4 },
 ]
 
 const router = createRouter({

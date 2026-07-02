@@ -8,6 +8,7 @@
       <RouterLink to="/day1" class="day-btn">Day 1</RouterLink>
       <RouterLink to="/day2" class="day-btn">Day 2</RouterLink>
       <RouterLink to="/home" class="day-btn">Day 3</RouterLink>
+      <RouterLink to="/day4" class="day-btn">Day 4</RouterLink>
     </nav>
 
     <main class="app-main">
