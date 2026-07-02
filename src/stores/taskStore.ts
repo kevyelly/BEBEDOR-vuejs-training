@@ -105,4 +105,4 @@ export const useTaskStore = defineStore('tasks', () => {
 
   // TODO 7: Return everything the component needs to access
   return { tasks, totalCount, doneCount, pendingCount, addTask, toggleTask, removeTask }
-})
+}, { persist: true })

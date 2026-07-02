@@ -3,7 +3,6 @@ import { defineStore } from 'pinia'
 
 
 
-
 export const useUserStore = defineStore('users', ()=>{
     const currentUser = ref('')
     const isLoggedIn = ref(false)
