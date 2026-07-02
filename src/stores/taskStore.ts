@@ -103,6 +103,10 @@ export const useTaskStore = defineStore('tasks', () => {
     tasks.value = tasks.value.filter(task => task.id !== id)
   }
 
+  function removeAllCompleted(){
+    tasks.value = tasks.value.filter(task=>!task.done)
+  }
+
   // TODO 7: Return everything the component needs to access
-  return { tasks, totalCount, doneCount, pendingCount, addTask, toggleTask, removeTask }
+  return { tasks, nextId, totalCount, doneCount, pendingCount, addTask, toggleTask, removeTask, removeAllCompleted }
 }, { persist: true })

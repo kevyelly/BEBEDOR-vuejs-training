@@ -18,7 +18,7 @@ const taskStore = useTaskStore()
 const { tasks, doneCount, pendingCount, totalCount } = storeToRefs(taskStore)
 
 // TODO 4: Destructure ACTIONS directly (no storeToRefs needed for functions)
-const { addTask, toggleTask, removeTask } = taskStore
+const { addTask, toggleTask, removeTask, removeAllCompleted } = taskStore
 
 // This local ref is fine — it's UI state, not task state
 const newTaskName = ref('')
@@ -57,6 +57,7 @@ function handleAdd() {
         <button class="remove" @click="removeTask(task.id)">X</button>
       </li>
     </ul>
+    <button @click="removeAllCompleted">Remove All Completed</button>
   </div>  
 </template>
 
